@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://cep855swyqcx8"]
+
+[ext_resource type="Script" path="res://scenes/cameras/chase_camera.gd" id="1_4xbgd"]
+[ext_resource type="PackedScene" uid="uid://bc4byn4j8u60x" path="res://scenes/vehicle_testing/spaceship/executioner.tscn" id="1_5juhr"]
+[ext_resource type="PackedScene" uid="uid://b5rfhare58lh" path="res://scenes/vehicle_testing/airplane/airplane.tscn" id="3_qysab"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1dtee"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_sg34y"]
+sky_material = SubResource("ProceduralSkyMaterial_1dtee")
+
+[sub_resource type="Environment" id="Environment_f4yqq"]
+background_mode = 2
+sky = SubResource("Sky_sg34y")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nxdnd"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4no5e"]
+size = Vector2(100, 400)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5nfa"]
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f4yqq")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.52678, -10.3394)
+script = ExtResource("1_4xbgd")
+target = NodePath("../cartoon_plane")
+offset = Vector3(0, 4, -8)
+
+[node name="Executioner" parent="." instance=ExtResource("1_5juhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65092, 0)
+visible = false
+
+[node name="cartoon_plane" parent="." instance=ExtResource("3_qysab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05359, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_nxdnd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_4no5e")
+surface_material_override/0 = SubResource("StandardMaterial3D_m5nfa")
