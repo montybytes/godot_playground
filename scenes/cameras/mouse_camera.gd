@@ -14,5 +14,9 @@ func _input(event: InputEvent):
 		rotation_degrees.y = wrapf(rotation_degrees.y, 0, 360)
 
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
 func _physics_process(delta: float) -> void:
 	pass

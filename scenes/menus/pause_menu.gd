@@ -2,15 +2,15 @@ extends Control
 
 
 @onready var main_menu = "res://scenes/menus/main_menu.tscn"
-@onready var pause_menu:Control = $PauseMenu
+@onready var pause_menu:Control = $"."
 @onready var settings_menu:Control = $SettingsMenu
 
 
 func _on_resume_pressed() -> void:
-	get_tree().paused = false
-	pause_menu.hide()
-
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	pause_menu.hide()
+	
+	get_tree().paused = false
 
 
 func _on_settings_pressed() -> void:
