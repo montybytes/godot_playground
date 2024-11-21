@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c4vfngdi2sw8k"]
 
-[ext_resource type="Script" path="res://scenes/cameras/mouse_camera.gd" id="1_1b0gt"]
 [ext_resource type="Script" path="res://scenes/environment_testing/main.gd" id="1_rjgy2"]
 [ext_resource type="PackedScene" uid="uid://e5nfnk8f16ha" path="res://scenes/menus/pause_menu.tscn" id="1_yf4e2"]
+[ext_resource type="Script" path="res://scenes/cameras/fly_camera.gd" id="3_uf2cc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_chhih"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,4 +49,4 @@ shape = SubResource("BoxShape3D_gimo7")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.884483, 0.466572, 0, -0.466572, 0.884483, 0, 5.64646, 16.3135)
-script = ExtResource("1_1b0gt")
+script = ExtResource("3_uf2cc")
