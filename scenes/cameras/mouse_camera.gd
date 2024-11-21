@@ -12,6 +12,13 @@ func _input(event: InputEvent):
 		
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		rotation_degrees.y = wrapf(rotation_degrees.y, 0, 360)
+		
+	if Input.is_action_pressed("exit"):
+		get_tree().quit()
+
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _physics_process(delta: float) -> void:

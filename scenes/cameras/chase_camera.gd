@@ -4,6 +4,15 @@ extends Camera3D
 @export var target: Node3D
 @export var offset = Vector3.ZERO
 
+func _input(event: InputEvent):
+	if Input.is_action_pressed("exit"):
+		get_tree().quit()
+
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
 func _physics_process(delta):
 	if !target: return
 
