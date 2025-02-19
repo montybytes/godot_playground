@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cep855swyqcx8"]
+[gd_scene load_steps=9 format=3 uid="uid://cep855swyqcx8"]
 
 [ext_resource type="Script" path="res://scenes/cameras/chase_camera.gd" id="1_4xbgd"]
-[ext_resource type="PackedScene" uid="uid://bc4byn4j8u60x" path="res://scenes/vehicle_testing/spaceship/executioner.tscn" id="1_5juhr"]
 [ext_resource type="PackedScene" uid="uid://b5rfhare58lh" path="res://scenes/vehicle_testing/airplane/airplane.tscn" id="3_qysab"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1dtee"]
@@ -38,10 +37,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.5
 script = ExtResource("1_4xbgd")
 target = NodePath("../cartoon_plane")
 offset = Vector3(0, 4, -8)
-
-[node name="Executioner" parent="." instance=ExtResource("1_5juhr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65092, 0)
-visible = false
 
 [node name="cartoon_plane" parent="." instance=ExtResource("3_qysab")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05359, 0)

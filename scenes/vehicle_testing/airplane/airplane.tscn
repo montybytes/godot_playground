@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5rfhare58lh"]
 
-[ext_resource type="PackedScene" uid="uid://btba6pq22aedq" path="res://assets/airplanes/cartoon_plane.glb" id="1_0bqu1"]
+[ext_resource type="PackedScene" uid="uid://2akhf5lmp87y" path="res://assets/airplanes/cartoon_plane.glb" id="1_0bqu1"]
 [ext_resource type="Script" path="res://scenes/vehicle_testing/airplane/airplane.gd" id="2_kb6yf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7luad"]
@@ -16,3 +16,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.79873)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.282972)
 shape = SubResource("CapsuleShape3D_7luad")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="8"]
